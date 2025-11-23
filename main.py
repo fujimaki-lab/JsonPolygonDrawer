@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
 # JSON読み込み
-with open("src/polygons.json", "r") as f:
+with open("src/polygons_rocket.json", "r") as f:
     data = json.load(f)
 
 polygons = data["items"] if "items" in data else data
@@ -16,8 +16,8 @@ os.makedirs(save_dir, exist_ok=True)
 # まとめ用の図を作成
 fig_all, ax_all = plt.subplots(figsize=(6, 6))
 ax_all.set_aspect("equal")
-ax_all.set_xlim(-5, 5)
-ax_all.set_ylim(-5, 5)
+ax_all.set_xlim(-5.5, 5.5)  # 座標範囲を -5.5～5.5 に変更
+ax_all.set_ylim(-5.5, 5.5)
 ax_all.set_title("All Polygons")
 ax_all.set_xlabel("X")
 ax_all.set_ylabel("Z")
@@ -33,8 +33,8 @@ for i, poly in enumerate(polygons):
     plt.title(f"Polygon ID {i}")
     plt.xlabel("X")
     plt.ylabel("Z")
-    ax.set_xlim(-5, 5)
-    ax.set_ylim(-5, 5)
+    ax.set_xlim(-5.5, 5.5)  # 座標範囲を -5.5～5.5 に変更
+    ax.set_ylim(-5.5, 5.5)
     ax.grid(True)
 
     patch = Polygon(verts, fill=False, linewidth=2)
@@ -57,4 +57,3 @@ plt.savefig(f"{save_dir}/all_polygons.png")
 plt.close()
 
 print(f"保存完了！ → {save_dir}/ 内に生成されました 🎉")
-
