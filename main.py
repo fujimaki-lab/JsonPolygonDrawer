@@ -4,13 +4,13 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
 # JSON読み込み
-with open("src/polygons_rocket.json", "r") as f:
+with open("src/polygons_oripa_rocket.json", "r") as f:
     data = json.load(f)
 
 polygons = data["items"] if "items" in data else data
 
 # 保存フォルダ作成
-save_dir = "polygon_images"
+save_dir = "polygon_images_rocket_oripa"
 os.makedirs(save_dir, exist_ok=True)
 
 # まとめ用の図を作成
